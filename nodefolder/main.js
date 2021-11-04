@@ -19,6 +19,7 @@ async function main() {
 
     for(let i=2;i<=numRows+1;i++){
       let len=$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().length;
+      //if()
       json.information.push({mark:parseFloat($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text().slice(0,-1)), date:parseInt($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().slice(0,-1).substr(len-5))});
       //json.information.push({mark:$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text(), date:$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()});
      
