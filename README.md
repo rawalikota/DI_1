@@ -15,6 +15,7 @@ node main.js
 Go to the reactfolder or type 
 "cd.." 
 "cd reactfolder"
+"npm install recharts "
 
 # client side execution
 "npm start"
