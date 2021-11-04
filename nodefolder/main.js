@@ -19,7 +19,7 @@ async function main() {
 
     for(let i=2;i<=numRows+1;i++){
       let len=$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().length;
-      json.information.push({mark:parseFloat($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text().slice(0,-1)), l1:parseInt($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().slice(0,-1).substr(len-5))});
+      json.information.push({mark:parseFloat($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text().slice(0,-1)), date:parseInt($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().slice(0,-1).substr(len-5))});
       //json.information.push({mark:$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text(), date:$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()});
      
     }
@@ -27,7 +27,7 @@ async function main() {
     console.log(json);
     var jsonContent = JSON.stringify(json);
     
-    fs.writeFile("../reactfolder/src/output.json", jsonContent, 'utf8', function (err) {
+    fs.writeFile("../reactfolder/src/components/data/output.json", jsonContent, 'utf8', function (err) {
       if (err) {
           console.log("An error occured while writing JSON object to Number File.");
           return console.log(err);
@@ -81,29 +81,3 @@ async function main() {
 
 main();
 
-//#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child(1) > td:nth-child(2) > a
-
-/*const server=http.createServer((req, res) =>{
-                const url=req.url;
-                const method=req.method;
-                if(url === '/'){
-                    res.write('<html>');
-                    res.write('<body> <form action="/enterurl" method="POST"> <input type="text" name="url"><button type="submit">Enter URL</button></form></body>');
-                    res.write('</html>');
-                    return res.end();
-
-                }
-                if(url === '/enterurl' && method === 'POST'){
-                    fs.writeFileSync('url.txt', 'dummy');
-                    res.statusCode=302;
-                    res.setHeader('Location', '/');
-                    return res.end();
-
-                }
-                res.setHeader('Content-Type','text/html');
-                res.write('<html>');
-                res.write('<body> Home</body>');
-                res.write('</html>');
-                res.end(); //#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child(1) > td:nth-child(2) > a
-            });
-server.listen(3000);*/
