@@ -1,4 +1,4 @@
-import * as data from "../data/output.json";
+import * as data from "../data/output.json";        //imports JSON data file from 
 import {
     LineChart,
     Line,
@@ -12,18 +12,18 @@ import {
 
 export default function Chart() {
     return (
-        <div style={{ width: "1100px",
-                    height: "600px",
-                    backgroundColor: "black" }}>
+        <div style={{ width: "1200px",
+                    height: "700px",
+                    backgroundColor: "mediumaquamarine" }}>
         <ResponsiveContainer width="100%"
                             height="100%">
             <LineChart
-            width={700}
-            height={400}
-            data={data.information}
+            width={800}
+            height={500}
+            data={data.information}             //using the json data from the imported data object
             margin={{
-                top: 5,
-                right: 30,
+                top: 20,
+                right: 20,
                 left: 20,
                 bottom: 5,
             }}
@@ -37,7 +37,7 @@ export default function Chart() {
                 type="monotone"
                 dataKey="date"
                 stroke="#8884d8"
-                activeDot={{ r: 8 }}
+                activeDot={{ r: 10 }}
             />
             </LineChart>
         </ResponsiveContainer>
