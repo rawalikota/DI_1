@@ -20,3 +20,7 @@ Go to the reactfolder or type
 # client side execution
 "npm start"
 open "http://localhost:3000/" in the browser
+
+# tdd in nodefolder
+
+"npm run test"

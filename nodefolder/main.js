@@ -1,6 +1,7 @@
 const request = require('request-promise'); 
 const cheerio= require('cheerio');
 const fs = require('fs');
+const { exit } = require('process');
 
 async function main() {
     const html = await request.get("https://en.wikipedia.org/wiki/Women%27s_high_jump_world_record_progression");     //using request-promise library for loading the web page
@@ -15,13 +16,11 @@ async function main() {
 
     for(let i=2;i<=numRows+1;i++){
       let len=$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().length;
-      //if()
       json.information.push({mark:parseFloat($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text().slice(0,-1)), date:parseInt($("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text().slice(0,-1).substr(len-5))});
-      //json.information.push({mark:$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(1)").text(), date:$("#mw-content-text > div.mw-parser-output > table > tbody > tr:nth-child("+i+") > td:nth-child(3)").text()});
-     
+      
     }
   
-    //console.log(json);
+    
     var jsonContent = JSON.stringify(json);  
     
     fs.writeFile("../reactfolder/src/components/data/output.json", jsonContent, 'utf8', function (err) {  //writing json object as json file in client location
@@ -34,8 +33,7 @@ async function main() {
     });
     
     
-    
-}
+    }
    
   
 

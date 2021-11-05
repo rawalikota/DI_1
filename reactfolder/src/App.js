@@ -1,6 +1,4 @@
-import React from "react";
-
-import App from "./components/charts/chart.js";
+import App from "./components/charts/chart.js"; //imports chart from chart.js
 
 
 
